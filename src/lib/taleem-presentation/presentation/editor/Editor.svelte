@@ -19,6 +19,7 @@
   export let isBlob = false;
   export let showToolbar = true;
   export let audioData = '';
+  export let save = ()=>{console.log("hookup save function here");};
 
   // Local state
   let currentTime = 0;
@@ -209,9 +210,7 @@
       bind:show
       bind:showSidePanel
       bind:currentTime={currentTime}
-      {currentSlideIndex}
-      addNew={handleAddNew}
-      deleteSlide={handleDeleteSlide}
+      {currentSlideIndex}saveDeleteSlide}
       copySlide={handleCopySlide}
       pasteSlide={handlePasteSlide}
       cloneSlide={handleCloneSlide}
@@ -219,6 +218,7 @@
       {isBlob}
       {setCurrentSlideIndex}
       {shiftTime}
+      {save}
     />
   </div>
   {/if}

@@ -22,5 +22,8 @@ export default async function updateSlides(slides){
         
   }//the loop
 
+    if(newSlides.length > 0){
+      newSlides[0].startTime = 0;
+    }
   return newSlides;
 }

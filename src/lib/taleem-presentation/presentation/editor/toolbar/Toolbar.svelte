@@ -16,6 +16,7 @@ export let pasteSlide;
 export let cloneSlide;
 export let deleteSlide;
 export let shiftTime;
+export let save=()=>{};
 
 
 export let soundFile=null;
@@ -33,7 +34,8 @@ export let currentTime=0;
     
     <NavBtn2 title='SP' icon={Icons.DOOR}  clk={()=>showSidePanel = !showSidePanel} />
       <NavBtn2 title='Slide' icon={Icons.BULB}  clk={()=>show = !show} />
-    <NavBtn2 title='Save' icon='🖨️'  clk={()=>{console.log(
+      <NavBtn2 title='Save' icon={Icons.SAVE}  clk={save} />
+    <NavBtn2 title='Log' icon='🖨️'  clk={()=>{console.log(
       "export const presentationData = " + JSON.stringify(slides)
       )}} />
     
