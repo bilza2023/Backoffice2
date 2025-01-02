@@ -7,7 +7,7 @@
 import TopToolbar from './TopToolbar.svelte';
 
 import Row from './Row.svelte';
-import SlideObject from "../../slideObject/slideObject";
+import {SlideObject} from "../../index";
   import { onMount } from 'svelte';
 
 // export let just items and currentTime which is required for Editor only

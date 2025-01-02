@@ -49,7 +49,7 @@ async function loadImages() {
 //   debugger;
   for (let i = 0; i < currentSlide.items.length; i++) {
     const item = currentSlide.items[i];
-
+//ERROR==> use of permanent url 
     if (item.itemExtra.type == 'image' ) {
       try {
           const url = 'https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/'+ item.extra.src + '.' + item.extra.ext;

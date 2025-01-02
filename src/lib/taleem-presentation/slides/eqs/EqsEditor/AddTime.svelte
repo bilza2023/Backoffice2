@@ -1,6 +1,8 @@
 
 <script>
     //@ts-nocheck
+    import {onMount} from 'svelte';  
+
     export let item;
     export let currentTime;
     export let isFirst;
@@ -22,6 +24,11 @@ function handleInputChange(event) {
         updateTimings();
 }
 
+  onMount(async() =>{
+        // console.log("ok");
+        // debugger;
+
+    });
 </script>
 
 
@@ -35,8 +42,8 @@ function handleInputChange(event) {
         disabled={isFirst}
     />
 
-    <div class="text-[14px]">Start:{ item.itemExtra.startTime.toFixed(2)}</div>
-    <div class="text-[14px]">End:{item.itemExtra.endTime.toFixed(2)}</div>
+    <div class="text-[14px]">Start:{ item.itemExtra.startTime}</div>
+    <div class="text-[14px]">End:{item.itemExtra.endTime}</div>
     <button class='bg-orange-800 text-xs p-0 m-1 rounded-md' on:click={addTime}>Set Time</button>
 </div>
   

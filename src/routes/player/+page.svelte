@@ -3,41 +3,37 @@
     //@ts-nocheck 
     import {Player ,SlideObject} from '$lib/taleem-presentation';
     import {onMount} from "svelte";
-    import ToolbarDiv from     "$lib/taleem-presentation/components/ToolbarDiv.svelte";
-    import OpenFileButton from "$lib/taleem-presentation/components/OpenFileButton.svelte";
 
+    import {db} from "../../lib/app/db.js";
 
-    let slides=[];
+    let showToolbar=true;
+
+    let item =null;
+    let slides;
+    let id;
     
     
- function callback(incomming){
-  // debugger;
-  if(typeof(incomming) !== 'object'){
-    alert("The imported slide is not an object");
-  }
-  // the [ and ] are very important ...
-  slides = [...incomming];
-  // console.log("slides" , slides);
- }
-    
-    onMount(async()=>{
-        // slides = await upgrade2Basic(Slides);
-        const demoCanvasSlide = SlideObject.Canvas.getDemoSlide();
-        const demoEqSlide = SlideObject.Eqs.getDemoSlide();
-        slides = [demoCanvasSlide ,demoEqSlide ];
-    });
+onMount(async()=>{
+
+  id = new URLSearchParams(location.search).get("id");
+  const resp = await db.tcode.getOne(id);
+
+    if (resp.ok){
+    item = await resp.json();
+    slides = await SlideObject.updateSlides(item.slides);
+    slides[0].startTime = 0; //--> keep this line
+      
+    debugger;
+    }
+    else {
+      throw new Error('Failed to load');
+    }
+});
+
 
 
     </script> 
-    
-<ToolbarDiv>
-  <OpenFileButton 
-    {callback}
-    importAccept=".js"
-    regexReplaceFilter={/export\s+const\s+\w+\s*=\s*/}
-  />
-  </ToolbarDiv>
-
+ 
     <div class='bg-gray-800 text-white w-full' >
       {#if slides}
         <div class="flex justify-center w-full   border-white border-2 text-center  rounded-lg  ">

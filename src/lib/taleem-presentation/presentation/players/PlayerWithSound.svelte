@@ -86,6 +86,7 @@ onMount(async ()=>{
         currentTime={pulse} 
         {pause}
         {assets}
+        {setPulse} 
       />
     </div>
   {/if}

@@ -1,7 +1,6 @@
 
 import SlideRegistry  from './SlideRegistry';
 const registry = SlideRegistry.getInstance();
-// import {SlideObject} from "$lib";
 import CanvasPlayer from "../../slides/canvas/CanvasPlayer/CanvasPlayer.svelte";
 import CanvasEditor from "../../slides/canvas/CanvasEditor/CanvasEditor.svelte";
 

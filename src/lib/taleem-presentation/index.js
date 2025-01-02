@@ -6,7 +6,6 @@ import SlideObject from "./slides/slideObject/slideObject";
 import ItemsMap from "./slides/canvas/staticItems/ItemsMap";
 
 import {
-        healthCheckCanvas,
         CanvasEditor,
         CanvasPlayer,
         EqPlayer,
@@ -21,11 +20,10 @@ export {
     SlideObject,
     Editor,
     Player,
-    healthCheckCanvas, // name may need changing
     ItemsMap,
 
     CanvasEditor,
     CanvasPlayer,
     EqPlayer,
-    EqsEditor
+    EqsEditor,
 }

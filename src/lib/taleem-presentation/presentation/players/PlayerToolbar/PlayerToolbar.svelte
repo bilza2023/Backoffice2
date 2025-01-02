@@ -60,7 +60,7 @@
       </div>
       
       <div class='progress-slider-container' style="background-color: {themeVars.bg};">
-        <input type="range" min='0' 
+        <input type="range" min=0 
           max={presentationObj.slides[presentationObj.slides.length - 1].endTime} value={pulse}
           class="progress-slider"
           style="background-color: {themeVars.secondary};"

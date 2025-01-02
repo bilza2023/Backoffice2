@@ -1,4 +1,5 @@
 <script>
+//   import {onMount} from 'svelte';  
   import SidePanel from "./SidePanel/SidePanel.svelte";
   import AddTime from "./AddTime.svelte";
   import EqPart from "./EqPart/EqPart.svelte"; 
@@ -19,6 +20,14 @@
    
     // Compute if there are items in the sp array
     $: hasItems = item?.itemExtra?.sp?.length > 0;
+   
+
+
+    // onMount(async() =>{
+        // console.log("ok");
+        // debugger;
+
+    // });
    </script>
    
    <div class="flex w-full  justify-center text-lg rounded-md gap-2">

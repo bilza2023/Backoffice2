@@ -1,6 +1,6 @@
 <script>
   //@ts-nocheck
-  import SlideObject from "../../../slideObject/slideObject";
+  import {SlideObject} from "../../../index";
   export let item;
 
   function getEqsSpItem(type){

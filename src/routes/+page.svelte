@@ -1,42 +1,75 @@
+<script>
 
+import { Card, BtnWIconSm, PageWrapper, HdgWithIcon } from 'sveltetools_bils/src/cmp';
+  
+  import { API_URL, onMount,toast,Icons,goto,checkToken,checkAdminToken} from '$lib/app/util';
+  import Nav from '$lib/app/appComp/Nav.svelte';
+  import {AppConsts} from "taleemtools";
 
-<div class='bg-gray-800 text-white w-full p-8 text-center min-h-screen'>
-
-  <h1 class="text-3xl font-bold mb-8 border-b-2 border-white pb-2">Taleem Presentation</h1>
-
-  <div class='flex gap-1 text-center w-full'>
-
-      <div class="w-6/12 border-2 border-white rounded-lg p-4 m-1 transition-all duration-300 hover:bg-gray-700 hover:shadow-lg text-center">
-
-        <a href="/editor" class="text-center text-lg text-orange-500 font-semibold pb-2  hover:text-orange-400">
-          <img class='rounded-md' src="./canvas.png" alt="canvas"/>
-          Editor
-        </a>
-      </div>
-      
-      <div class="w-6/12 border-2 border-white rounded-lg p-4 m-1 transition-all duration-300 hover:bg-gray-700 hover:shadow-lg text-center ">
-        <a href="/player" class="text-center text-lg text-orange-500 font-semibold pb-2  hover:text-orange-400">
-          <img class='rounded-md' src="./canvas2.png" alt="canvas"/>
-          Player
-        </a>
-      </div>
-
+  let isLogin = false;
+  let isAdmin = false;
+  onMount(async () => {
+    try{
+    // debugger;
+    // console.log(testFunction());
+    // console.log('cmp' , cmp);
+    
+      if (checkToken()){
+        isLogin = true;
+          if (checkAdminToken()){
+              isAdmin = true;
+          }
+      }     
+  
+    } catch (e) {
+         toast.push('failed to load');
+    }      
+  });
+  
+  ////////////////////////////////////////////////////////
+  </script>
+  
+  <!-- <MyComponent /> -->
+  
+  <Nav {isLogin} {isAdmin}/>
+  <PageWrapper>
+  
+  <div class='flex justify-center  p-2 '>
+   <HdgWithIcon bgColor='bg-stone-600' icon={Icons.TEST}>Back Office - Teachers Hub</HdgWithIcon>
   </div>
-<p class='text-gray-500 mt-8 '>Taleeem Presentation (taleempresentation) is a library for creating simple javascript presentations. The presentation is saved as a '.js' and is in simple json format.</p>
-</div>
-
-  <hr/>
-
-<!-- footer -->
-<div class="flex flex-wrap gap-4 bg-gray-800 text-white  p-8 text-xs">
-       
-<a href="/canvasPlayer" class="block border-b border-white pb-2 ">canvasPlayer</a>
+  
+  <!-- ================================================================= -->
+  {#if AppConsts.TCODE_LIST}
+  <div class='flex justify-center p-8 '>
+  <div class='flex flex-wrap  justify-center border-2 border-white  gap-1 p-4 m-0 bg-gray-700 rounded-md w-full'>
+  
+  {#each AppConsts.TCODE_LIST as tcode}
     
-<a href="/canvasEditor" class="block border-b border-white pb-2 ">canvasEditor</a>
+     <a href={`/syllabus?tcode=${tcode}`}> <img class="p-2  border-2 border-white rounded-md" 
+      src= {`${AppConsts.MEDIA_URL}/images/thumbs/${tcode}.png`} 
       
-<a href="/eqPlayer" class="block border-b border-white pb-2 ">EqPlayer </a>
-      
-<a href="/eqEditor" class="block border-b border-white pb-2 ">EqEditor</a>
-
-</div><!--page ends-->
+      alt= {tcode} /></a>
     
+  {/each}
+  
+  <!-- /////////////////////// -->
+  <a href={`/book?tcode=fbise9math`}> <img class="p-2  border-2 border-white rounded-md" 
+    src= {`/system_images/gen/fbise9math.png`} alt="" /></a>
+  <!-- /////////////////////// -->
+  </div>
+  </div>
+  {/if}
+  
+  <!-- ================================================================= -->
+  
+  <div class='flex justify-center w-full'>
+   <div class="w-3/12">
+    <Card  url="/notesFBISE9th" title="Notes FBISE 9th"/>
+    </div>
+   <div class="w-3/12">
+    <Card  url="/syllabusByChapter" title="9 Math By Chapter"/>
+    
+    </div>
+  </div>
+  </PageWrapper>
+  

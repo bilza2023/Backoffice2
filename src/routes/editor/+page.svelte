@@ -1,50 +1,41 @@
 <script>
-  import {SlideObject,healthCheckCanvas,Editor} from '$lib/taleem-presentation';
+  import {SlideObject,Editor} from '$lib/taleem-presentation';
   // 15-dec-2024 :why import Editor directy ???? is it error--> NO-18dec2024--
     import audioData from "./audioData.js";
     import {onMount} from "svelte";
   ////////////////////////////////////////////
-  import ToolbarDiv from     "$lib/taleem-presentation/components/ToolbarDiv.svelte";
-  import OpenFileButton from "$lib/taleem-presentation/components/OpenFileButton.svelte";
-  import CallbackButton from '$lib/taleem-presentation/components/CallbackButton.svelte';
-  import SaveFileButton from "$lib/taleem-presentation/components/SaveFileButton.svelte";
-  
-    // import SaveLoadToolbar from "$lib/components/SaveLoadToolbar.svelte";
+  import {db} from "../../lib/app/db.js";
     
-    let slides;
     let showToolbar=true;
 
-  function newPresentation(){
-    slides = [];
-  }  
-
-  function callback(incomming){
-    // IMPORTANT DO NOT IMPORT SLIDE SINCE THAT IS OBJECT WE NEED ARRAY HERE
-  //there is difference between slides = [incomming]; and slides = [...incomming];
-    slides = [...incomming];
- }
+ let item =null;
+ let slides;
+ let id; 
+ /////////////////////////////////
 onMount(async()=>{
-      const s = SlideObject.Canvas.getDemoSlide();
-      const report = await healthCheckCanvas(s);
-      console.log('report' , report);
-      slides = [s];
+
+    id = new URLSearchParams(location.search).get("id");
+    const resp = await db.tcode.getOne(id);
+
+    if (resp.ok){
+    item = await resp.json();
+debugger;
+    slides = await SlideObject.updateSlides(item.slides);
+    // soundFilePath =  SOUND_FILE_PATH + item.filename + '.opus'; 
+
+    }
+    else {
+      throw new Error('Failed to load');
+    }
+   
+      // const s = SlideObject.Canvas.getDemoSlide();
+      // const report = await healthCheckCanvas(s);
+      // console.log('report' , report);
+      // slides = [s];
 
 });
 
 </script>
-<ToolbarDiv>
-  <CallbackButton callback={newPresentation} title='New ' icon='🎉'/>
-  <CallbackButton callback={()=>showToolbar=!showToolbar} title='Fold ' icon='🪜'/>
-  
-  <OpenFileButton 
-    {callback}
-    importAccept=".js"
-    regexReplaceFilter={/export\s+const\s+\w+\s*=\s*/}
-  />
-  <!-- export const SlideSSSSSS -->
-  <SaveFileButton content={slides}  PreTextToAdd='export const Slides'/>
-  </ToolbarDiv>
-  
 
   <div class="w-full bg-gray-800">
   {#if slides}

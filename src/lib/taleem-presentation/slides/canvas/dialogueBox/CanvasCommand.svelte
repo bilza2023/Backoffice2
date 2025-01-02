@@ -79,6 +79,7 @@
   <div class="flex flex-col w-full">
       
       <table class="border-collapse border-2 border-white">
+        <tbody>
           <tr>
               <td class="border border-white p-1">Templates</td>
               <td class="border border-white p-1">
@@ -164,7 +165,7 @@
                   <input type="color" bind:value={extra.gridLineColor} class="bg-gray-900 text-white p-1">
               </td>
           </tr>
-       
+        </tbody>
       </table>
       <br>
   </div>

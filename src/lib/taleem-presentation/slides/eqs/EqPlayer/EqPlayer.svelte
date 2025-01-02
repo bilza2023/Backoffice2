@@ -12,7 +12,7 @@ import EqPlayerCore from './EqPlayerCore.svelte';
 import {itemsStore} from "./store";
       
         export let items = []; 
-        export let slideExtra = []; 
+        export let slideExtra; 
         export let currentTime = 0;
         export let setPulse = 0;
 

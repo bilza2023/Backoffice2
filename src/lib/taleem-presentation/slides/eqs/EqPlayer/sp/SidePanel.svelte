@@ -7,6 +7,7 @@ import {itemsStore} from "../store";
 
 // export let items;
 export let currentTime;
+export let slideExtra;
 
 let currentItem;
 onMount(()=>{
@@ -38,7 +39,7 @@ $:{
         {#if  currentItem.itemExtra.sp.length > 0 }    
                 {#each currentItem.itemExtra.sp as eq}  
                   
-                         <ImgCodeTxt {eq} />         
+                         <ImgCodeTxt {eq} {slideExtra} />         
 
                 {/each}
         {/if}

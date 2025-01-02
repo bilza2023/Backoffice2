@@ -19,7 +19,6 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write ."
   },
-  
   "devDependencies": {
     "@skeletonlabs/skeleton": "^2.10.2",
     "@skeletonlabs/tw-plugin": "^0.4.0",
@@ -137,6 +136,7 @@
     "set-cookie-parser": "^2.7.0",
     "shebang-command": "^2.0.0",
     "shebang-regex": "^3.0.0",
+    "simplerestclient2": "^1.0.5",
     "sirv": "^2.0.4",
     "source-map-js": "^1.2.1",
     "strip-json-comments": "^3.1.1",
@@ -146,6 +146,7 @@
     "svelte-katex": "^0.1.2",
     "svelte-konva": "^0.3.1",
     "sveltetools_bils": "^0.0.3",
+    "taleem-presentation": "^0.5.5",
     "taleemtools": "^1.0.7",
     "text-table": "^0.2.0",
     "tiny-glob": "^0.2.9",

@@ -5,6 +5,7 @@ import Table from './Table.svelte';
 import TableCode from './TableCode.svelte';
 // import {HdgWithIcon} from "sveltetools_bils/src/cmp"
 export let eq;
+export let slideExtra;
 
 </script>
 
@@ -22,7 +23,8 @@ export let eq;
 
     {#if eq.type == 'img' || eq.type == 'image'}
 
-    <img src= {eq.code} alt="Not found" />
+    <img class="rounded-lg p-1 px-2" 
+    src= {slideExtra.imagesUrl + eq.code} alt="Not found" />
 
 
     {/if}

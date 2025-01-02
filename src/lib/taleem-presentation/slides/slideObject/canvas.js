@@ -1,37 +1,57 @@
 
-// import canvasHealth from "../canvas/canvasHealth/canvasHealth";
 import ItemsMap from '../canvas/staticItems/ItemsMap';
 import {Slide} from "../canvas/samples/demoSlide";
-import uuid from "../uuid";
-
+import getNewItem from "./getNewItem";
+import getNewSlide from "./getNewSlide";
 
 export default class Canvas {
 
     static ItemsMap = Object.freeze(new Map(ItemsMap));
-    
-    // static checkHealth(slide, fix = false) {
-    //     return canvasHealth(slide, fix);
-    // }
 
     static getDemoSlide(){
         return Slide;
     }
+ 
+    static getDynamicDemoSlide() {
+      let xx= 10; let yy=50;
+      
+      let dynSlide = Canvas.getNewSlide();
+    
+      // Iterate over the keys (itemTypes) in ItemsMap
+      for (const itemType of ItemsMap.keys()) {
+        try {
+          const newItem = Canvas.getCanvasNewItem(itemType);
+      
+          newItem.itemExtra.x = xx; newItem.itemExtra.y = yy;
+          
+          xx += 50;yy += 4;
+
+          dynSlide.items.push(newItem);
+        } catch (error) {
+          console.error(`Error creating item of type ${itemType}:`, error);
+          // Handle the error appropriately, e.g., skip the item, display a message, etc.
+        }
+      }
+    
+      return dynSlide;
+    }
+    static getCanvasNewItem(itemType) {
+      const newItemExtra = ItemsMap.get(itemType).data();
+  
+      const newItem = Canvas.getNewItem(newItemExtra) ;
+      return newItem;
+    }
+    static getNewItem( itemExtra = {} , name='',content='') {
+      return getNewItem(itemExtra, name, content);
+    }
+  
     /**
      * 9-Dec-2024 the reason we need seperate newSlide for canvas and are not using the SlideObject.newSlide is that we also have to add the slideExtra of the canvas slide. The difference between 2 slide types is not only the slide.type but also slide.slideExtra.
      * 
      */
     static getNewSlide() {
         const slideExtra = Canvas.getSlideExtra();
-        return {
-            uuid: uuid(),
-            version: 'basic',
-            startTime: 0,
-            endTime: 10,
-            type: 'canvas', // canvas is fixed here 
-            template: '',
-            items: [],
-            slideExtra,
-        }
+        return getNewSlide('canvas' , slideExtra);
     }
     static getSlideExtra(){
         return {

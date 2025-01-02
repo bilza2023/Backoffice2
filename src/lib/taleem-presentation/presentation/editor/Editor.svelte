@@ -1,6 +1,6 @@
 <script>
-  import {SlideObject} from "../../index";
-import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
+  import {SlideObject} from "../../slides/index";
   import Toolbar from './toolbar/Toolbar.svelte';
   import PresentationModeEditor from "./PresentationModeEditor.svelte";
   import Taleem from "../taleemObject/Taleem";

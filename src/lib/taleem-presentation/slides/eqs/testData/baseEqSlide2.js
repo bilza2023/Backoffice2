@@ -1,7 +1,7 @@
 export const Slide ={
   
     "items": [
-      {
+      { 
         "name": "",
         "content": "",
         "showAt": 0,
@@ -155,7 +155,7 @@ export const Slide ={
         
       }
     ],
-    "slideExtra": [],
+    "slideExtra": {},
    
 };
 
