@@ -53,9 +53,8 @@ export default class SlideObject {
         if(type === 'canvas'){
             return Canvas.getNewSlide();
         }
-        if(type === 'Eqs'){
-            let slide = getNewSlide('Eqs');
-            // slide.type = 'Eqs';
+        if(type === 'eqs'){
+            let slide = getNewSlide('eqs');
             return slide;
         }
     }
@@ -65,6 +64,6 @@ export default class SlideObject {
     }
 
     static availableSlideTypes(){
-        return [ 'canvas' , 'Eqs'];
+        return [ 'canvas' , 'eqs'];
     }
 }//slide object

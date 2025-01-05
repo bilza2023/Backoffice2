@@ -125,7 +125,7 @@
   function addNew(slideType) {
     try {
       // debugger;
-      const newSlide = SlideObject.getNewSlide(slideType);
+      const newSlide = SlideObject.getNewSlide(slideType.toLowerCase());
       setNewSlideTimings(newSlide); //setNewSlideTimings
       slides = [...slides, newSlide];
       setCurrentSlideIndex(slides.length - 1);
