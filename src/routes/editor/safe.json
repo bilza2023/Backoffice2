@@ -1,0 +1,169 @@
+{
+  "_id": {
+    "$oid": "6779fd92808e55c288cb5524"
+  },
+  "tcode": "fbise9math",
+  "chapter": 1,
+  "exercise": "1.2",
+  "filename": "fbise9math2024_ch_1_ex_1.2_q_2_pt_3",
+  "questionNo": 2,
+  "part": 3,
+  "name": "",
+  "questionType": "paid",
+  "status": "empty",
+  "slides": [
+    {
+      "uuid": "5af04f2b-0c7d-4aa9-8f64-5c12b8473dfd",
+      "startTime": 0,
+      "endTime": 10,
+      "type": "eqs",
+      "version": "basic",
+      "template": "",
+      "items": [
+        {
+          "uuid": "a8285cd3-6652-4fbf-a6f3-11837a8a535f",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 3,
+            "endTime": 0,
+            "code": "Write each exponential expression as an equivalent radical expression and simplify  if possible.",
+            "type": "text",
+            "sp": []
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb5526"
+          }
+        },
+        {
+          "uuid": "51a1d633-7220-4c18-8463-4521332fc630",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 13,
+            "endTime": 0,
+            "code": "(\\frac{1}{32})^\\frac{1}{5}",
+            "type": "code",
+            "sp": []
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb5527"
+          }
+        },
+        {
+          "uuid": "0e5b4230-b54c-4bd3-8b30-aadd3954f424",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 0,
+            "endTime": 0,
+            "code": "=\\sqrt[5]{\\frac{1}{32}}",
+            "type": "code",
+            "sp": []
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb5528"
+          }
+        },
+        {
+          "uuid": "c3163f31-4dc9-4f9d-841d-83550a17c010",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 54,
+            "endTime": 0,
+            "code": "= \\sqrt[5]{\\frac{1}{2^5}}",
+            "type": "code",
+            "sp": [
+              {
+                "code": "[[\"2\",\"32\"],[\"2\",\"16\"],[\"2\",\"8\"],[\"2\",\"4\"],[\"2\",\"2\"],[\"\",\"1\"]]",
+                "type": "table"
+              }
+            ]
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb5529"
+          }
+        },
+        {
+          "uuid": "146b7929-eeb1-4274-93b1-8d6019a198ce",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 0,
+            "endTime": 0,
+            "code": "=\\frac{1}{\\sqrt[5]{2^5}}",
+            "type": "code",
+            "sp": [
+              {
+                "code": "we know that f x is raised to power 2 and x also has a radical sign both ( the radical sign and the power of 2) will cancel each other. ",
+                "type": "text"
+              },
+              {
+                "code": "Same stands true for raised to power 3, 4 , 5 or n",
+                "type": "text"
+              }
+            ]
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb552a"
+          }
+        },
+        {
+          "uuid": "8f38da73-9310-4147-add9-66ba0058a633",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 149,
+            "endTime": 0,
+            "code": "=\\frac{1}{{2}}",
+            "type": "code",
+            "sp": []
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb552b"
+          }
+        },
+        {
+          "uuid": "df719a1a-b9c3-4ab4-a918-fd975aec1af3",
+          "name": "",
+          "content": "",
+          "showAt": 0,
+          "hideAt": 0,
+          "itemExtra": {
+            "startTime": 0,
+            "endTime": 0,
+            "code": "Answer",
+            "type": "text",
+            "sp": []
+          },
+          "_id": {
+            "$oid": "6779fd92808e55c288cb552c"
+          }
+        }
+      ],
+      "slideExtra": {
+        "imagesUrl": "https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/"
+      },
+      "_id": {
+        "$oid": "6779fd92808e55c288cb5525"
+      }
+    }
+  ],
+  "tags": [],
+  "sortOrder": 4,
+  "comments": "",
+  "__v": 0
+}

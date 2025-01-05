@@ -122,7 +122,7 @@
     }
   }
   // Slide operations
-  function handleAddNew(slideType) {
+  function addNew(slideType) {
     try {
       // debugger;
       const newSlide = SlideObject.getNewSlide(slideType);
@@ -219,6 +219,7 @@
       {setCurrentSlideIndex}
       {shiftTime}
       {save}
+      {addNew}
     />
   </div>
   {/if}

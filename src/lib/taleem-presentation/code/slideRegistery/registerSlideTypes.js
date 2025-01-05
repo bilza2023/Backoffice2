@@ -14,7 +14,7 @@ const CanvasSlideModule ={
     EditorComponent: CanvasEditor
 };
 const EquationSlideModule ={
-    type: 'Eqs',
+    type: 'eqs',
     PlayerComponent: EqPlayer,
     EditorComponent: EqsEditor
 };

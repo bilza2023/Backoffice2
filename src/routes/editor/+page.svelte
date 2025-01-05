@@ -1,16 +1,59 @@
 <script>
   import {SlideObject,Editor} from '$lib/taleem-presentation';
-  // 15-dec-2024 :why import Editor directy ???? is it error--> NO-18dec2024--
-    import audioData from "./audioData.js";
-    import {onMount} from "svelte";
-  ////////////////////////////////////////////
+  import {onMount} from "svelte";
   import {db} from "../../lib/app/db.js";
-    
-    let showToolbar=true;
+  import saveFinal from './saveFinal.js';
+  // import {upgrade} from './upgrade.js';
+  // import {database} from '../../lib/database.js';
+
+ let showToolbar=true;
 
  let item =null;
  let slides;
  let id; 
+
+ function convertToUrlFriendlyName(name) {
+            const urlFriendlyName = name.replace(/\s+/g, '_');
+            const sanitizedUrlFriendlyName = urlFriendlyName.replace(/[^\w\d_]/g, '');
+            return sanitizedUrlFriendlyName;
+}
+
+// async function ajaxPut(url, payload){
+//   try {
+//       const token = localStorage.getItem("token");
+//       const resp = await fetch(url, {
+//         method: 'PUT',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': `Bearer ${token}`,
+//         },
+//         body: JSON.stringify(payload),
+//       });
+  
+//       return resp;
+//     } catch (error) {
+//       throw error;
+//     }
+// }
+ async function save(){
+  
+  if (item.name && item.name !== ''){
+    item.name = convertToUrlFriendlyName(item.name);
+  }  
+  if (slides && slides.length > 0){
+    slides[0].startTime = 0;
+  }
+  const data = item;
+  data.slides = slides;
+// debugger;
+  const resp = await db.tcode.update(data._id, data);
+  // const resp = await ajaxPut(`http://localhost:5000/test/${data._id}`, data);
+  if(resp.ok){
+    toast.push('saved');
+  }else {
+    toast.push('failed to saved');
+  } 
+ }
  /////////////////////////////////
 onMount(async()=>{
 
@@ -18,21 +61,14 @@ onMount(async()=>{
     const resp = await db.tcode.getOne(id);
 
     if (resp.ok){
-    item = await resp.json();
-debugger;
-    slides = await SlideObject.updateSlides(item.slides);
+      item = await resp.json();
+      slides = item.slides;
+      // debugger;
     // soundFilePath =  SOUND_FILE_PATH + item.filename + '.opus'; 
-
     }
     else {
       throw new Error('Failed to load');
     }
-   
-      // const s = SlideObject.Canvas.getDemoSlide();
-      // const report = await healthCheckCanvas(s);
-      // console.log('report' , report);
-      // slides = [s];
-
 });
 
 </script>
@@ -40,10 +76,10 @@ debugger;
   <div class="w-full bg-gray-800">
   {#if slides}
     <Editor
-      isBlob={true}
+      isBlob={false}
       {showToolbar}
       bind:slides={slides}
-      {audioData}
+      {save}
     />
   {/if}
   </div>
