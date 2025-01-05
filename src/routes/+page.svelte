@@ -1,10 +1,12 @@
 <script>
 
+import { toast } from '@zerodevx/svelte-toast'
+
 import { Card, BtnWIconSm, PageWrapper, HdgWithIcon } from 'sveltetools_bils/src/cmp';
-  
-  import { API_URL, onMount,toast,Icons,goto,checkToken,checkAdminToken} from '$lib/app/util';
+  import { API_URL, onMount,Icons,goto,checkToken,checkAdminToken} from '$lib/app/util';
   import Nav from '$lib/app/appComp/Nav.svelte';
   import {AppConsts} from "taleemtools";
+
 
   let isLogin = false;
   let isAdmin = false;
@@ -25,6 +27,7 @@ import { Card, BtnWIconSm, PageWrapper, HdgWithIcon } from 'sveltetools_bils/src
          toast.push('failed to load');
     }      
   });
+  const options = {}
   
   ////////////////////////////////////////////////////////
   </script>
@@ -72,4 +75,3 @@ import { Card, BtnWIconSm, PageWrapper, HdgWithIcon } from 'sveltetools_bils/src
     </div>
   </div>
   </PageWrapper>
-  

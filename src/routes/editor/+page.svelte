@@ -3,11 +3,12 @@
   import {onMount} from "svelte";
   import {db} from "../../lib/app/db.js";
   import saveFinal from './saveFinal.js';
-  // import {upgrade} from './upgrade.js';
-  // import {database} from '../../lib/database.js';
-
+ 
+  // import Message from '../../lib/appComp/Message.svelte';
+	import { toast } from '@zerodevx/svelte-toast';
  let showToolbar=true;
 
+//  let message = 'loading...';
  let item =null;
  let slides;
  let id; 
@@ -45,14 +46,13 @@
   }
   const data = item;
   data.slides = slides;
-// debugger;
+
   const resp = await db.tcode.update(data._id, data);
-  // const resp = await ajaxPut(`http://localhost:5000/test/${data._id}`, data);
-  if(resp.ok){
-    toast.push('saved');
-  }else {
-    toast.push('failed to saved');
-  } 
+    if(resp.ok){
+      toast.push("Saved...!");
+    }else {
+      toast.push("Failed to save...");
+    } 
  }
  /////////////////////////////////
 onMount(async()=>{
